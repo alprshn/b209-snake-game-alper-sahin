@@ -118,8 +118,7 @@ namespace b209_snake_game_alper_sahin
                             case SnakeDirection.Left:
                                 matrix[i - 1, j] = 1; break;
                         }
-
-                        matrix[i - 1, j]++;
+                        matrix[i, j]++;
                     }
                 }
             }
