@@ -61,6 +61,11 @@ namespace b209_snake_game_alper_sahin
                         graphics.FillRectangle(Brushes.White, i * sizeCell.Width + 1, j * sizeCell.Height + 1, sizeCell.Width - 2, sizeCell.Height - 2);
 
                     }
+                    if (matrix[i,j] == (int)MatrixObject.Food)
+                    {
+                        graphics.FillRectangle(Brushes.Red, i * sizeCell.Width + 1, j * sizeCell.Height + 1, sizeCell.Width - 2, sizeCell.Height - 2);
+
+                    }
                     else
                     {
                         graphics.FillRectangle(Brushes.Blue, i * sizeCell.Width + 1, j * sizeCell.Height + 1, sizeCell.Width - 2, sizeCell.Height - 2);
