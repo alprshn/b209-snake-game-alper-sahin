@@ -1,0 +1,6 @@
+C:\Users\alper\Desktop\Computer-Engineer\Visual Programming\b209-snake-game-alper-sahin\b209-snake-game-alper-sahin\obj\Debug\net7.0-windows\b209_snake_game_alper_sahin.Form1.resources
+C:\Users\alper\Desktop\Computer-Engineer\Visual Programming\b209-snake-game-alper-sahin\b209-snake-game-alper-sahin\obj\Debug\net7.0-windows\b209-snake-game-alper-sahin.csproj.GenerateResource.cache
+C:\Users\alper\Desktop\Computer-Engineer\Visual Programming\b209-snake-game-alper-sahin\b209-snake-game-alper-sahin\obj\Debug\net7.0-windows\b209-snake-game-alper-sahin.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\alper\Desktop\Computer-Engineer\Visual Programming\b209-snake-game-alper-sahin\b209-snake-game-alper-sahin\obj\Debug\net7.0-windows\b209-snake-game-alper-sahin.AssemblyInfoInputs.cache
+C:\Users\alper\Desktop\Computer-Engineer\Visual Programming\b209-snake-game-alper-sahin\b209-snake-game-alper-sahin\obj\Debug\net7.0-windows\b209-snake-game-alper-sahin.AssemblyInfo.cs
+C:\Users\alper\Desktop\Computer-Engineer\Visual Programming\b209-snake-game-alper-sahin\b209-snake-game-alper-sahin\obj\Debug\net7.0-windows\b209-snake-game-alper-sahin.csproj.CoreCompileInputs.cache

@@ -24,7 +24,11 @@ namespace b209_snake_game_alper_sahin
         private void Timer_Tick(object? sender, EventArgs e)
         {
             Bitmap bitmap = new Bitmap(pictureBox1.Width, pictureBox1.Height);
-            Graphics graphics = Graphics.FromImage(bitmap);    
+            Graphics graphics = Graphics.FromImage(bitmap);
+
+            graphics.FillRectangle(Brushes.Gray, 0, 0, pictureBox1.Width,pictureBox1.Height);
+
+            pictureBox1.BackgroundImage = bitmap;
         }
     }
 }
