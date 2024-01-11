@@ -13,6 +13,7 @@ namespace b209_snake_game_alper_sahin
         System.Windows.Forms.Timer timer;
         int sizeMatrix;
         int[,] matrix;
+        SnakeDirection direction;
 
         enum MatrixObject
         {
@@ -23,8 +24,8 @@ namespace b209_snake_game_alper_sahin
         {
             Up,
             Right,
-            Left,
-            Down
+            Down,
+            Left
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -44,7 +45,7 @@ namespace b209_snake_game_alper_sahin
             matrix[5, 5] = 1;
             matrix[6, 5] = 2;
             matrix[7, 5] = 3;
-
+            direction = SnakeDirection.Left;
         }
 
         private void Timer_Tick(object? sender, EventArgs e)
@@ -99,7 +100,17 @@ namespace b209_snake_game_alper_sahin
                     }
                     else if (matrix[i, j] == 1)
                     {
-
+                        switch (direction) 
+                        {
+                            case SnakeDirection.Up:
+                                matrix[i , j-1] = 1; break;
+                            case SnakeDirection.Right:
+                                matrix[i + 1, j] = 1; break;
+                            case SnakeDirection.Down:
+                                matrix[i, j + 1] = 1; break;
+                            case SnakeDirection.Left:
+                                matrix[i - 1, j] = 1; break;
+                        }
                     }
                 }
             }
