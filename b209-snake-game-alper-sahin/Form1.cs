@@ -15,7 +15,7 @@ namespace b209_snake_game_alper_sahin
         int[,] matrix;
         SnakeDirection direction;
         int lastSegment;
-
+        Random random;  
         enum MatrixObject
         {
             Food = -1,
@@ -31,6 +31,7 @@ namespace b209_snake_game_alper_sahin
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            random = new Random();
             timer = new System.Windows.Forms.Timer();
             timer.Interval = 1000;
             timer.Start();
@@ -108,6 +109,10 @@ namespace b209_snake_game_alper_sahin
                     }
                     else if (matrix[i, j] == 1 && !headMoved)
                     {
+                        if (matrix[i,j] == (int)MatrixObject.Food) 
+                        {
+                            lastSegment++;
+                        }
                         switch (direction)
                         {
                             case SnakeDirection.Up:
@@ -143,6 +148,17 @@ namespace b209_snake_game_alper_sahin
                     direction= SnakeDirection.Left;
                     break;
 
+            }
+        }
+
+        private void GenerateFood()
+        {
+            Point foodPosition;
+            do
+            {
+                foodPosition = new Point(random.Next() % sizeMatrix, random.Next() % sizeMatrix);
+            } while (matrix[foodPosition.X,foodPosition.Y] != 0){
+                matrix[foodPosition.X, foodPosition.Y] = (int)MatrixObject.Food;
             }
         }
     }
