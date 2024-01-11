@@ -33,7 +33,7 @@ namespace b209_snake_game_alper_sahin
         {
             random = new Random();
             timer = new System.Windows.Forms.Timer();
-            timer.Interval = 1000;
+            timer.Interval = 100;
             timer.Start();
             timer.Tick += Timer_Tick;
             sizeMatrix = 20;
@@ -43,7 +43,7 @@ namespace b209_snake_game_alper_sahin
 
         private void Initialize()
         {
-            matrix[2, 2] = (int)MatrixObject.Food;
+            GenerateFood();
             matrix[5, 5] = 1;
             matrix[6, 5] = 2;
             matrix[7, 5] = 3;
@@ -109,21 +109,30 @@ namespace b209_snake_game_alper_sahin
                     }
                     else if (matrix[i, j] == 1 && !headMoved)
                     {
-                        if (matrix[i,j] == (int)MatrixObject.Food) 
-                        {
-                            lastSegment++;
-                        }
+                        Point walkPosition;
                         switch (direction)
                         {
                             case SnakeDirection.Up:
-                                matrix[i, j - 1] = 1; break;
+                                walkPosition = new Point(i, j - 1);
+                                break;
                             case SnakeDirection.Right:
-                                matrix[i + 1, j] = 1; break;
+                                walkPosition = new Point(i + 1, j);
+                                break;
                             case SnakeDirection.Down:
-                                matrix[i, j + 1] = 1; break;
+                                walkPosition = new Point(i, j + 1);
+                                break;
                             case SnakeDirection.Left:
-                                matrix[i - 1, j] = 1; break;
+                                walkPosition = new Point(i - 1, j);
+                                break;
+                            default:
+                                throw new Exception("It is not possible fot the snake to not have a direction");
                         }
+                        if (matrix[walkPosition.X, walkPosition.Y] == (int)MatrixObject.Food)
+                        {
+                            lastSegment++;
+                            GenerateFood();
+                        }
+                        matrix[walkPosition.X, walkPosition.Y] = 1;
                         matrix[i, j]++;
                         headMoved = true;
                     }
