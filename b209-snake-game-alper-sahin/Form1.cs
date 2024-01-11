@@ -13,6 +13,11 @@ namespace b209_snake_game_alper_sahin
         int sizeMatrix;
         int[,] matrix;
 
+        enum MatrixObject
+        {
+            Food = -1,
+            Spike = -2
+        }
         private void Form1_Load(object sender, EventArgs e)
         {
             timer = new System.Windows.Forms.Timer();
@@ -26,6 +31,7 @@ namespace b209_snake_game_alper_sahin
 
         private void Initialize()
         {
+            matrix[2, 2] = (int)MatrixObject.Food;
             matrix[5, 5] = 1;
             matrix[6, 5] = 2;
             matrix[7, 5] = 3;
