@@ -33,11 +33,13 @@ namespace b209_snake_game_alper_sahin
 
             graphics.FillRectangle(Brushes.Gray, 0, 0, pictureBox1.Width, pictureBox1.Height);
 
+            SizeF sizeCell = new SizeF((float)pictureBox1.Width / sizeMatrix, (float)pictureBox1.Height / sizeMatrix);
+
             for (int i = 0; i < sizeMatrix; i++)
             {
                 for (int j = 0; j < sizeMatrix; j++)
                 {
-                    graphics.FillRectangle(Brushes.White, i*(pictureBox1.Width/sizeMatrix) +1, j * (pictureBox1.Height / sizeMatrix)+1, (pictureBox1.Width / sizeMatrix) -2, (pictureBox1.Height / sizeMatrix) -2);
+                    graphics.FillRectangle(Brushes.White, i*(pictureBox1.Width/sizeMatrix) +1, j * (pictureBox1.Height / sizeMatrix)+1, sizeCell.Width - 2, (pictureBox1.Height / sizeMatrix) -2);
                 }
             }   
 
