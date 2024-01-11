@@ -4,3 +4,13 @@ C:\Users\alper\Desktop\Computer-Engineer\Visual Programming\b209-snake-game-alpe
 C:\Users\alper\Desktop\Computer-Engineer\Visual Programming\b209-snake-game-alper-sahin\b209-snake-game-alper-sahin\obj\Debug\net7.0-windows\b209-snake-game-alper-sahin.AssemblyInfoInputs.cache
 C:\Users\alper\Desktop\Computer-Engineer\Visual Programming\b209-snake-game-alper-sahin\b209-snake-game-alper-sahin\obj\Debug\net7.0-windows\b209-snake-game-alper-sahin.AssemblyInfo.cs
 C:\Users\alper\Desktop\Computer-Engineer\Visual Programming\b209-snake-game-alper-sahin\b209-snake-game-alper-sahin\obj\Debug\net7.0-windows\b209-snake-game-alper-sahin.csproj.CoreCompileInputs.cache
+C:\Users\alper\Desktop\Computer-Engineer\Visual Programming\b209-snake-game-alper-sahin\b209-snake-game-alper-sahin\bin\Debug\net7.0-windows\b209-snake-game-alper-sahin.exe
+C:\Users\alper\Desktop\Computer-Engineer\Visual Programming\b209-snake-game-alper-sahin\b209-snake-game-alper-sahin\bin\Debug\net7.0-windows\b209-snake-game-alper-sahin.deps.json
+C:\Users\alper\Desktop\Computer-Engineer\Visual Programming\b209-snake-game-alper-sahin\b209-snake-game-alper-sahin\bin\Debug\net7.0-windows\b209-snake-game-alper-sahin.runtimeconfig.json
+C:\Users\alper\Desktop\Computer-Engineer\Visual Programming\b209-snake-game-alper-sahin\b209-snake-game-alper-sahin\bin\Debug\net7.0-windows\b209-snake-game-alper-sahin.dll
+C:\Users\alper\Desktop\Computer-Engineer\Visual Programming\b209-snake-game-alper-sahin\b209-snake-game-alper-sahin\bin\Debug\net7.0-windows\b209-snake-game-alper-sahin.pdb
+C:\Users\alper\Desktop\Computer-Engineer\Visual Programming\b209-snake-game-alper-sahin\b209-snake-game-alper-sahin\obj\Debug\net7.0-windows\b209-snake-game-alper-sahin.dll
+C:\Users\alper\Desktop\Computer-Engineer\Visual Programming\b209-snake-game-alper-sahin\b209-snake-game-alper-sahin\obj\Debug\net7.0-windows\refint\b209-snake-game-alper-sahin.dll
+C:\Users\alper\Desktop\Computer-Engineer\Visual Programming\b209-snake-game-alper-sahin\b209-snake-game-alper-sahin\obj\Debug\net7.0-windows\b209-snake-game-alper-sahin.pdb
+C:\Users\alper\Desktop\Computer-Engineer\Visual Programming\b209-snake-game-alper-sahin\b209-snake-game-alper-sahin\obj\Debug\net7.0-windows\b209-snake-game-alper-sahin.genruntimeconfig.cache
+C:\Users\alper\Desktop\Computer-Engineer\Visual Programming\b209-snake-game-alper-sahin\b209-snake-game-alper-sahin\obj\Debug\net7.0-windows\ref\b209-snake-game-alper-sahin.dll

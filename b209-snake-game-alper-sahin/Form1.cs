@@ -10,7 +10,7 @@ namespace b209_snake_game_alper_sahin
         }
 
         System.Windows.Forms.Timer timer;
-
+        int sizeMatrix;
 
         private void Form1_Load(object sender, EventArgs e)
         {
@@ -23,10 +23,24 @@ namespace b209_snake_game_alper_sahin
 
         private void Timer_Tick(object? sender, EventArgs e)
         {
+            Draw();
+        }
+
+        private void Draw()
+        {
             Bitmap bitmap = new Bitmap(pictureBox1.Width, pictureBox1.Height);
             Graphics graphics = Graphics.FromImage(bitmap);
 
-            graphics.FillRectangle(Brushes.Gray, 0, 0, pictureBox1.Width,pictureBox1.Height);
+            graphics.FillRectangle(Brushes.Gray, 0, 0, pictureBox1.Width, pictureBox1.Height);
+
+            for (int i = 0; i < sizeMatrix; i++)
+            {
+                for (int j = 0; j < sizeMatrix; j++)
+                {
+                    graphics.FillRectangle(Brushes.White, i*(pictureBox1.Width/sizeMatrix) +1, j * (pictureBox1.Width / sizeMatrix)+1, (pictureBox1.Width / sizeMatrix) -2, (pictureBox1.Width / sizeMatrix) -2);
+                }
+            }
+
 
             pictureBox1.BackgroundImage = bitmap;
         }
