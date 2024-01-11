@@ -69,12 +69,12 @@ namespace b209_snake_game_alper_sahin
             {
                 for (int j = 0; j < sizeMatrix; j++)
                 {
-                    if (matrix[i,j] == 0)
+                    if (matrix[i, j] == 0)
                     {
                         graphics.FillRectangle(Brushes.White, i * sizeCell.Width + 1, j * sizeCell.Height + 1, sizeCell.Width - 2, sizeCell.Height - 2);
 
                     }
-                    else if (matrix[i,j] == (int)MatrixObject.Food)
+                    else if (matrix[i, j] == (int)MatrixObject.Food)
                     {
                         graphics.FillRectangle(Brushes.Red, i * sizeCell.Width + 1, j * sizeCell.Height + 1, sizeCell.Width - 2, sizeCell.Height - 2);
 
@@ -85,7 +85,7 @@ namespace b209_snake_game_alper_sahin
 
                     }
                 }
-            }   
+            }
 
 
             pictureBox1.BackgroundImage = bitmap;
@@ -93,6 +93,7 @@ namespace b209_snake_game_alper_sahin
 
         private void GameLogic()
         {
+            bool headMoved = false;
             for (int i = 0; i < sizeMatrix; i++)
             {
                 for (int j = 0; j < sizeMatrix; j++)
@@ -105,12 +106,12 @@ namespace b209_snake_game_alper_sahin
                     {
                         matrix[i, j]++;
                     }
-                    else if (matrix[i, j] == 1)
+                    else if (matrix[i, j] == 1 && !headMoved)
                     {
-                        switch (direction) 
+                        switch (direction)
                         {
                             case SnakeDirection.Up:
-                                matrix[i , j-1] = 1; break;
+                                matrix[i, j - 1] = 1; break;
                             case SnakeDirection.Right:
                                 matrix[i + 1, j] = 1; break;
                             case SnakeDirection.Down:
@@ -119,8 +120,29 @@ namespace b209_snake_game_alper_sahin
                                 matrix[i - 1, j] = 1; break;
                         }
                         matrix[i, j]++;
+                        headMoved = true;
                     }
                 }
+            }
+        }
+
+        private void Form1_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            switch (e.KeyChar)
+            {
+                case 'w':
+                    direction= SnakeDirection.Up;
+                    break;
+                case 'd':
+                    direction= SnakeDirection.Right;
+                    break;
+                case 's':
+                    direction= SnakeDirection.Down;
+                    break;
+                case 'a':
+                    direction= SnakeDirection.Left;
+                    break;
+
             }
         }
     }
