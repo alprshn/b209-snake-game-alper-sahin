@@ -50,6 +50,7 @@ namespace b209_snake_game_alper_sahin
 
         private void Timer_Tick(object? sender, EventArgs e)
         {
+            GameLogic();
             Draw();
         }
 
