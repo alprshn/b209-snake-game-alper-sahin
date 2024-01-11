@@ -157,9 +157,8 @@ namespace b209_snake_game_alper_sahin
             do
             {
                 foodPosition = new Point(random.Next() % sizeMatrix, random.Next() % sizeMatrix);
-            } while (matrix[foodPosition.X,foodPosition.Y] != 0){
-                matrix[foodPosition.X, foodPosition.Y] = (int)MatrixObject.Food;
-            }
+            } while (matrix[foodPosition.X, foodPosition.Y] != 0);
+            matrix[foodPosition.X, foodPosition.Y] = (int)MatrixObject.Food;
         }
     }
 }
