@@ -69,11 +69,7 @@ namespace b209_snake_game_alper_sahin
             {
                 for (int j = 0; j < sizeMatrix; j++)
                 {
-                    if (matrix[i,j] == lastSegment)
-                    {
-                        matrix[i, j] = 0;
-                    }
-                    else if (matrix[i,j] == 0)
+                    if (matrix[i,j] == 0)
                     {
                         graphics.FillRectangle(Brushes.White, i * sizeCell.Width + 1, j * sizeCell.Height + 1, sizeCell.Width - 2, sizeCell.Height - 2);
 
@@ -101,7 +97,11 @@ namespace b209_snake_game_alper_sahin
             {
                 for (int j = 0; j < sizeMatrix; j++)
                 {
-                    if (matrix[i, j] > 1)
+                    if (matrix[i, j] == lastSegment)
+                    {
+                        matrix[i, j] = 0;
+                    }
+                    else if (matrix[i, j] > 1)
                     {
                         matrix[i, j]++;
                     }
