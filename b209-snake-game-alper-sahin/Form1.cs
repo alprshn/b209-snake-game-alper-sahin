@@ -11,6 +11,7 @@ namespace b209_snake_game_alper_sahin
 
         System.Windows.Forms.Timer timer;
         int sizeMatrix;
+        int[,] matrix;
 
         private void Form1_Load(object sender, EventArgs e)
         {
@@ -19,6 +20,16 @@ namespace b209_snake_game_alper_sahin
             timer.Start();
             timer.Tick += Timer_Tick;
             sizeMatrix = 10;
+            matrix = new int[sizeMatrix, sizeMatrix];
+            Initialize();
+        }
+
+        private void Initialize()
+        {
+            matrix[5, 5] = 1;
+            matrix[6, 5] = 2;
+            matrix[7, 5] = 3;
+
         }
 
         private void Timer_Tick(object? sender, EventArgs e)
@@ -39,7 +50,16 @@ namespace b209_snake_game_alper_sahin
             {
                 for (int j = 0; j < sizeMatrix; j++)
                 {
-                    graphics.FillRectangle(Brushes.White, i*(pictureBox1.Width/sizeMatrix) +1, j * (pictureBox1.Height / sizeMatrix)+1, sizeCell.Width - 2, (pictureBox1.Height / sizeMatrix) -2);
+                    if (matrix[i,j] == 0)
+                    {
+                        graphics.FillRectangle(Brushes.White, i * sizeCell.Width + 1, j * sizeCell.Height + 1, sizeCell.Width - 2, sizeCell.Height - 2);
+
+                    }
+                    else
+                    {
+                        graphics.FillRectangle(Brushes.Blue, i * sizeCell.Width + 1, j * sizeCell.Height + 1, sizeCell.Width - 2, sizeCell.Height - 2);
+
+                    }
                 }
             }   
 
