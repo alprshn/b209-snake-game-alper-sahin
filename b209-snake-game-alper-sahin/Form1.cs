@@ -18,7 +18,7 @@ namespace b209_snake_game_alper_sahin
             timer.Interval = 1000;
             timer.Start();
             timer.Tick += Timer_Tick;
-            
+            sizeMatrix = 10;
         }
 
         private void Timer_Tick(object? sender, EventArgs e)
@@ -37,9 +37,9 @@ namespace b209_snake_game_alper_sahin
             {
                 for (int j = 0; j < sizeMatrix; j++)
                 {
-                    graphics.FillRectangle(Brushes.White, i*(pictureBox1.Width/sizeMatrix) +1, j * (pictureBox1.Width / sizeMatrix)+1, (pictureBox1.Width / sizeMatrix) -2, (pictureBox1.Width / sizeMatrix) -2);
+                    graphics.FillRectangle(Brushes.White, i*(pictureBox1.Width/sizeMatrix) +1, j * (pictureBox1.Height / sizeMatrix)+1, (pictureBox1.Width / sizeMatrix) -2, (pictureBox1.Height / sizeMatrix) -2);
                 }
-            }
+            }   
 
 
             pictureBox1.BackgroundImage = bitmap;
