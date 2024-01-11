@@ -1,3 +1,4 @@
+using System.Drawing;
 using System.Windows.Forms;
 
 namespace b209_snake_game_alper_sahin
@@ -18,13 +19,21 @@ namespace b209_snake_game_alper_sahin
             Food = -1,
             Spike = -2
         }
+        enum SnakeDirection
+        {
+            Up,
+            Right,
+            Left,
+            Down
+        }
+
         private void Form1_Load(object sender, EventArgs e)
         {
             timer = new System.Windows.Forms.Timer();
             timer.Interval = 1000;
             timer.Start();
             timer.Tick += Timer_Tick;
-            sizeMatrix = 10;
+            sizeMatrix = 20;
             matrix = new int[sizeMatrix, sizeMatrix];
             Initialize();
         }
@@ -61,7 +70,7 @@ namespace b209_snake_game_alper_sahin
                         graphics.FillRectangle(Brushes.White, i * sizeCell.Width + 1, j * sizeCell.Height + 1, sizeCell.Width - 2, sizeCell.Height - 2);
 
                     }
-                    if (matrix[i,j] == (int)MatrixObject.Food)
+                    else if (matrix[i,j] == (int)MatrixObject.Food)
                     {
                         graphics.FillRectangle(Brushes.Red, i * sizeCell.Width + 1, j * sizeCell.Height + 1, sizeCell.Width - 2, sizeCell.Height - 2);
 
@@ -76,6 +85,24 @@ namespace b209_snake_game_alper_sahin
 
 
             pictureBox1.BackgroundImage = bitmap;
+        }
+
+        private void GameLogic()
+        {
+            for (int i = 0; i < sizeMatrix; i++)
+            {
+                for (int j = 0; j < sizeMatrix; j++)
+                {
+                    if (matrix[i, j] > 1)
+                    {
+                        matrix[i, j]++;
+                    }
+                    else if (matrix[i, j] == 1)
+                    {
+
+                    }
+                }
+            }
         }
     }
 }
