@@ -14,6 +14,7 @@ namespace b209_snake_game_alper_sahin
         int sizeMatrix;
         int[,] matrix;
         SnakeDirection direction;
+        int lastSegment;
 
         enum MatrixObject
         {
@@ -45,6 +46,7 @@ namespace b209_snake_game_alper_sahin
             matrix[5, 5] = 1;
             matrix[6, 5] = 2;
             matrix[7, 5] = 3;
+            lastSegment = 3;
             direction = SnakeDirection.Left;
         }
 
@@ -67,7 +69,11 @@ namespace b209_snake_game_alper_sahin
             {
                 for (int j = 0; j < sizeMatrix; j++)
                 {
-                    if (matrix[i,j] == 0)
+                    if (matrix[i,j] == lastSegment)
+                    {
+                        matrix[i, j] = 0;
+                    }
+                    else if (matrix[i,j] == 0)
                     {
                         graphics.FillRectangle(Brushes.White, i * sizeCell.Width + 1, j * sizeCell.Height + 1, sizeCell.Width - 2, sizeCell.Height - 2);
 
@@ -112,6 +118,8 @@ namespace b209_snake_game_alper_sahin
                             case SnakeDirection.Left:
                                 matrix[i - 1, j] = 1; break;
                         }
+
+                        matrix[i - 1, j]++;
                     }
                 }
             }
