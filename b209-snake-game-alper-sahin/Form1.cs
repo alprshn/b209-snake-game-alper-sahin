@@ -121,6 +121,7 @@ namespace b209_snake_game_alper_sahin
             }
             matrix[walkPosition.X, walkPosition.Y] = 1;
             matrix[headPosition.X, headPosition.Y]++;
+            headPosition = walkPosition;
 
             for (int i = 0; i < sizeMatrix; i++)
             {
