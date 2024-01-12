@@ -41,12 +41,21 @@ namespace b209_snake_game_alper_sahin
         {
             this.KeyPreview = true;
             pictureBox1.Visible = true;
+            scoreText.Visible = true;
+            label1.Visible = true;
             timer.Start();
             timer.Tick += Timer_Tick;
             sizeMatrix = 20;
             matrix = new int[sizeMatrix, sizeMatrix];
-            
             Initialize();
+            playButton.Visible = false;
+            difficultyButton.Visible = false;
+            howPlayButton.Visible = false;
+            exitButton.Visible = false;
+        }
+        private void MainMenuVisible()
+        {
+
         }
         private void Initialize()
         {
@@ -186,6 +195,12 @@ namespace b209_snake_game_alper_sahin
                     if (direction != SnakeDirection.Right)
                         direction = SnakeDirection.Left;
                     break;
+                case ' ':
+                    if (timer.Enabled)
+                        timer.Stop();
+                    else
+                        timer.Start();
+                    break;
 
             }
         }
@@ -200,6 +215,6 @@ namespace b209_snake_game_alper_sahin
             matrix[foodPosition.X, foodPosition.Y] = (int)MatrixObject.Food;
         }
 
-        
+
     }
 }

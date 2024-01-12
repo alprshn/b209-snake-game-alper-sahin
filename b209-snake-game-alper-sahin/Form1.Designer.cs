@@ -32,6 +32,9 @@
             scoreText = new Label();
             label1 = new Label();
             playButton = new Button();
+            difficultyButton = new Button();
+            howPlayButton = new Button();
+            exitButton = new Button();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
@@ -66,7 +69,7 @@
             // 
             // playButton
             // 
-            playButton.Location = new Point(747, 221);
+            playButton.Location = new Point(326, 202);
             playButton.Name = "playButton";
             playButton.Size = new Size(75, 23);
             playButton.TabIndex = 3;
@@ -74,11 +77,41 @@
             playButton.UseVisualStyleBackColor = true;
             playButton.Click += playButton_Click;
             // 
+            // difficultyButton
+            // 
+            difficultyButton.Location = new Point(326, 231);
+            difficultyButton.Name = "difficultyButton";
+            difficultyButton.Size = new Size(75, 23);
+            difficultyButton.TabIndex = 4;
+            difficultyButton.Text = "Difficulty";
+            difficultyButton.UseVisualStyleBackColor = true;
+            // 
+            // howPlayButton
+            // 
+            howPlayButton.Location = new Point(326, 260);
+            howPlayButton.Name = "howPlayButton";
+            howPlayButton.Size = new Size(75, 23);
+            howPlayButton.TabIndex = 5;
+            howPlayButton.Text = "How To Play";
+            howPlayButton.UseVisualStyleBackColor = true;
+            // 
+            // exitButton
+            // 
+            exitButton.Location = new Point(326, 289);
+            exitButton.Name = "exitButton";
+            exitButton.Size = new Size(75, 23);
+            exitButton.TabIndex = 6;
+            exitButton.Text = "Exit";
+            exitButton.UseVisualStyleBackColor = true;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(843, 725);
+            Controls.Add(exitButton);
+            Controls.Add(howPlayButton);
+            Controls.Add(difficultyButton);
             Controls.Add(playButton);
             Controls.Add(label1);
             Controls.Add(scoreText);
@@ -98,5 +131,8 @@
         private Label scoreText;
         private Label label1;
         private Button playButton;
+        private Button difficultyButton;
+        private Button howPlayButton;
+        private Button exitButton;
     }
 }
