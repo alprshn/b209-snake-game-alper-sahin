@@ -35,13 +35,19 @@ namespace b209_snake_game_alper_sahin
             random = new Random();
             timer = new System.Windows.Forms.Timer();
             timer.Interval = 100;
+            timer.Stop();
+        }
+        private void playButton_Click(object sender, EventArgs e)
+        {
+            this.KeyPreview = true;
+            pictureBox1.Visible = true;
             timer.Start();
             timer.Tick += Timer_Tick;
             sizeMatrix = 20;
             matrix = new int[sizeMatrix, sizeMatrix];
+            
             Initialize();
         }
-
         private void Initialize()
         {
             timer.Start();
@@ -128,7 +134,6 @@ namespace b209_snake_game_alper_sahin
                 Thread.Sleep(1000);
                 Initialize();
                 return;
-
             }
             if (matrix[walkPosition.X, walkPosition.Y] == (int)MatrixObject.Food)
             {
@@ -162,17 +167,21 @@ namespace b209_snake_game_alper_sahin
             switch (e.KeyChar)
             {
                 case 'w':
+                case 'W':
                     if (direction != SnakeDirection.Down)
                         direction = SnakeDirection.Up;
                     break;
+                case 'D':
                 case 'd':
                     if (direction != SnakeDirection.Left)
                         direction = SnakeDirection.Right;
                     break;
+                case 'S':
                 case 's':
                     if (direction != SnakeDirection.Up)
                         direction = SnakeDirection.Down;
                     break;
+                case 'A':
                 case 'a':
                     if (direction != SnakeDirection.Right)
                         direction = SnakeDirection.Left;
@@ -190,5 +199,7 @@ namespace b209_snake_game_alper_sahin
             } while (matrix[foodPosition.X, foodPosition.Y] != 0);
             matrix[foodPosition.X, foodPosition.Y] = (int)MatrixObject.Food;
         }
+
+        
     }
 }

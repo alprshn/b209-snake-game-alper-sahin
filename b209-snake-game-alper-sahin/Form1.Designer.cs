@@ -31,6 +31,7 @@
             pictureBox1 = new PictureBox();
             scoreText = new Label();
             label1 = new Label();
+            playButton = new Button();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
@@ -41,6 +42,7 @@
             pictureBox1.Size = new Size(700, 700);
             pictureBox1.TabIndex = 0;
             pictureBox1.TabStop = false;
+            pictureBox1.Visible = false;
             // 
             // scoreText
             // 
@@ -50,6 +52,7 @@
             scoreText.Size = new Size(56, 15);
             scoreText.TabIndex = 1;
             scoreText.Text = "scoreText";
+            scoreText.Visible = false;
             // 
             // label1
             // 
@@ -59,12 +62,24 @@
             label1.Size = new Size(39, 15);
             label1.TabIndex = 2;
             label1.Text = "Score:";
+            label1.Visible = false;
+            // 
+            // playButton
+            // 
+            playButton.Location = new Point(747, 221);
+            playButton.Name = "playButton";
+            playButton.Size = new Size(75, 23);
+            playButton.TabIndex = 3;
+            playButton.Text = "Play";
+            playButton.UseVisualStyleBackColor = true;
+            playButton.Click += playButton_Click;
             // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(843, 725);
+            Controls.Add(playButton);
             Controls.Add(label1);
             Controls.Add(scoreText);
             Controls.Add(pictureBox1);
@@ -82,5 +97,6 @@
         private PictureBox pictureBox1;
         private Label scoreText;
         private Label label1;
+        private Button playButton;
     }
 }
