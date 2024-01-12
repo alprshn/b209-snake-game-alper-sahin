@@ -16,7 +16,7 @@ namespace b209_snake_game_alper_sahin
         SnakeDirection direction;
         Point headPosition;
         int lastSegment;
-        Random random;  
+        Random random;
         enum MatrixObject
         {
             Food = -1,
@@ -44,6 +44,7 @@ namespace b209_snake_game_alper_sahin
 
         private void Initialize()
         {
+            timer.Start();
             for (int i = 0; i < sizeMatrix; i++)
             {
                 for (int j = 0; j < sizeMatrix; j++)
@@ -121,17 +122,20 @@ namespace b209_snake_game_alper_sahin
                 default:
                     throw new Exception("It is not possible fot the snake to not have a direction");
             }
-            if (walkPosition.X < 0 || walkPosition.Y< 0 ||walkPosition.X == sizeMatrix || walkPosition.Y == sizeMatrix || matrix[walkPosition.X, walkPosition.Y] > 0)
+            if (walkPosition.X < 0 || walkPosition.Y < 0 || walkPosition.X == sizeMatrix || walkPosition.Y == sizeMatrix || matrix[walkPosition.X, walkPosition.Y] > 0)
             {
+                timer.Stop();
+                Thread.Sleep(1000);
                 Initialize();
                 return;
+
             }
             if (matrix[walkPosition.X, walkPosition.Y] == (int)MatrixObject.Food)
             {
                 lastSegment++;
                 GenerateFood();
             }
-            
+            scoreText.Text = (lastSegment - 3).ToString(); // score board
             matrix[walkPosition.X, walkPosition.Y] = 1;
             matrix[headPosition.X, headPosition.Y]++;
 
@@ -147,7 +151,7 @@ namespace b209_snake_game_alper_sahin
                     {
                         matrix[i, j]++;
                     }
-                    
+
                 }
             }
             headPosition = walkPosition;
@@ -159,7 +163,7 @@ namespace b209_snake_game_alper_sahin
             {
                 case 'w':
                     if (direction != SnakeDirection.Down)
-                    direction= SnakeDirection.Up;
+                        direction = SnakeDirection.Up;
                     break;
                 case 'd':
                     if (direction != SnakeDirection.Left)
@@ -167,11 +171,11 @@ namespace b209_snake_game_alper_sahin
                     break;
                 case 's':
                     if (direction != SnakeDirection.Up)
-                    direction= SnakeDirection.Down;
+                        direction = SnakeDirection.Down;
                     break;
                 case 'a':
                     if (direction != SnakeDirection.Right)
-                    direction= SnakeDirection.Left;
+                        direction = SnakeDirection.Left;
                     break;
 
             }

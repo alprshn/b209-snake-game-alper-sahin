@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             pictureBox1 = new PictureBox();
+            scoreText = new Label();
+            label1 = new Label();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
@@ -40,11 +42,31 @@
             pictureBox1.TabIndex = 0;
             pictureBox1.TabStop = false;
             // 
+            // scoreText
+            // 
+            scoreText.AutoSize = true;
+            scoreText.Location = new Point(766, 51);
+            scoreText.Name = "scoreText";
+            scoreText.Size = new Size(56, 15);
+            scoreText.TabIndex = 1;
+            scoreText.Text = "scoreText";
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Location = new Point(729, 51);
+            label1.Name = "label1";
+            label1.Size = new Size(39, 15);
+            label1.TabIndex = 2;
+            label1.Text = "Score:";
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(748, 725);
+            ClientSize = new Size(843, 725);
+            Controls.Add(label1);
+            Controls.Add(scoreText);
             Controls.Add(pictureBox1);
             Name = "Form1";
             Text = "Form1";
@@ -52,10 +74,13 @@
             KeyPress += Form1_KeyPress;
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
 
         private PictureBox pictureBox1;
+        private Label scoreText;
+        private Label label1;
     }
 }
