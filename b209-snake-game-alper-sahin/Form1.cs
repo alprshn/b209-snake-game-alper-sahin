@@ -119,6 +119,10 @@ namespace b209_snake_game_alper_sahin
                 lastSegment++;
                 GenerateFood();
             }
+            else if (matrix[walkPosition.X,walkPosition.Y] > 0)
+            {
+                Initialize();
+            }
             matrix[walkPosition.X, walkPosition.Y] = 1;
             matrix[headPosition.X, headPosition.Y]++;
             headPosition = walkPosition;
@@ -145,15 +149,19 @@ namespace b209_snake_game_alper_sahin
             switch (e.KeyChar)
             {
                 case 'w':
+                    if (direction != SnakeDirection.Down)
                     direction= SnakeDirection.Up;
                     break;
                 case 'd':
-                    direction= SnakeDirection.Right;
+                    if (direction != SnakeDirection.Left)
+                        direction = SnakeDirection.Right;
                     break;
                 case 's':
+                    if (direction != SnakeDirection.Up)
                     direction= SnakeDirection.Down;
                     break;
                 case 'a':
+                    if (direction != SnakeDirection.Right)
                     direction= SnakeDirection.Left;
                     break;
 
