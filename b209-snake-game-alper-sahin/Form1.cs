@@ -96,7 +96,32 @@ namespace b209_snake_game_alper_sahin
 
         private void GameLogic()
         {
-            bool headMoved = false;
+            Point walkPosition;
+            switch (direction)
+            {
+                case SnakeDirection.Up:
+                    walkPosition = new Point(headPosition.X, headPosition.Y - 1);
+                    break;
+                case SnakeDirection.Right:
+                    walkPosition = new Point(headPosition.X + 1, headPosition.Y);
+                    break;
+                case SnakeDirection.Down:
+                    walkPosition = new Point(headPosition.X, headPosition.Y + 1);
+                    break;
+                case SnakeDirection.Left:
+                    walkPosition = new Point(headPosition.X - 1, headPosition.Y);
+                    break;
+                default:
+                    throw new Exception("It is not possible fot the snake to not have a direction");
+            }
+            if (matrix[walkPosition.X, walkPosition.Y] == (int)MatrixObject.Food)
+            {
+                lastSegment++;
+                GenerateFood();
+            }
+            matrix[walkPosition.X, walkPosition.Y] = 1;
+            matrix[headPosition.X, headPosition.Y]++;
+
             for (int i = 0; i < sizeMatrix; i++)
             {
                 for (int j = 0; j < sizeMatrix; j++)
@@ -109,35 +134,7 @@ namespace b209_snake_game_alper_sahin
                     {
                         matrix[i, j]++;
                     }
-                    else if (matrix[i, j] == 1 && !headMoved)
-                    {
-                        Point walkPosition;
-                        switch (direction)
-                        {
-                            case SnakeDirection.Up:
-                                walkPosition = new Point(i, j - 1);
-                                break;
-                            case SnakeDirection.Right:  
-                                walkPosition = new Point(i + 1, j);
-                                break;
-                            case SnakeDirection.Down:
-                                walkPosition = new Point(i, j + 1);
-                                break;
-                            case SnakeDirection.Left:
-                                walkPosition = new Point(i - 1, j);
-                                break;
-                            default:
-                                throw new Exception("It is not possible fot the snake to not have a direction");
-                        }
-                        if (matrix[walkPosition.X, walkPosition.Y] == (int)MatrixObject.Food)
-                        {
-                            lastSegment++;
-                            GenerateFood();
-                        }
-                        matrix[walkPosition.X, walkPosition.Y] = 1;
-                        matrix[i, j]++;
-                        headMoved = true;
-                    }
+                    
                 }
             }
         }
