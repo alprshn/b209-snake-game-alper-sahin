@@ -113,6 +113,7 @@
             menuButton.TabIndex = 7;
             menuButton.Text = "Main Menu";
             menuButton.UseVisualStyleBackColor = true;
+            menuButton.Click += menuButton_Click;
             // 
             // Form1
             // 
