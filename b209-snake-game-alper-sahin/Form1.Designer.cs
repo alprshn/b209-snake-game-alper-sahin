@@ -33,9 +33,13 @@
             label1 = new Label();
             playButton = new Button();
             difficultyButton = new Button();
-            howPlayButton = new Button();
             exitButton = new Button();
-            menuButton = new Button();
+            label2 = new Label();
+            easyButton = new Button();
+            hardButton = new Button();
+            mediumButton = new Button();
+            expertButton = new Button();
+            label3 = new Label();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
@@ -70,9 +74,9 @@
             // 
             // playButton
             // 
-            playButton.Location = new Point(326, 202);
+            playButton.Location = new Point(262, 174);
             playButton.Name = "playButton";
-            playButton.Size = new Size(75, 23);
+            playButton.Size = new Size(215, 52);
             playButton.TabIndex = 3;
             playButton.Text = "Play";
             playButton.UseVisualStyleBackColor = true;
@@ -80,49 +84,98 @@
             // 
             // difficultyButton
             // 
-            difficultyButton.Location = new Point(326, 231);
+            difficultyButton.Location = new Point(262, 232);
             difficultyButton.Name = "difficultyButton";
-            difficultyButton.Size = new Size(75, 23);
+            difficultyButton.Size = new Size(215, 52);
             difficultyButton.TabIndex = 4;
             difficultyButton.Text = "Difficulty";
             difficultyButton.UseVisualStyleBackColor = true;
-            // 
-            // howPlayButton
-            // 
-            howPlayButton.Location = new Point(326, 260);
-            howPlayButton.Name = "howPlayButton";
-            howPlayButton.Size = new Size(75, 23);
-            howPlayButton.TabIndex = 5;
-            howPlayButton.Text = "How To Play";
-            howPlayButton.UseVisualStyleBackColor = true;
+            difficultyButton.Click += difficultyButton_Click;
             // 
             // exitButton
             // 
-            exitButton.Location = new Point(326, 289);
+            exitButton.Location = new Point(262, 290);
             exitButton.Name = "exitButton";
-            exitButton.Size = new Size(75, 23);
+            exitButton.Size = new Size(215, 52);
             exitButton.TabIndex = 6;
             exitButton.Text = "Exit";
             exitButton.UseVisualStyleBackColor = true;
+            exitButton.Click += exitButton_Click;
             // 
-            // menuButton
+            // label2
             // 
-            menuButton.Location = new Point(738, 80);
-            menuButton.Name = "menuButton";
-            menuButton.Size = new Size(75, 23);
-            menuButton.TabIndex = 7;
-            menuButton.Text = "Main Menu";
-            menuButton.UseVisualStyleBackColor = true;
-            menuButton.Click += menuButton_Click;
+            label2.AutoSize = true;
+            label2.Location = new Point(423, 104);
+            label2.Name = "label2";
+            label2.Size = new Size(25, 15);
+            label2.TabIndex = 7;
+            label2.Text = "100";
+            // 
+            // easyButton
+            // 
+            easyButton.Location = new Point(483, 174);
+            easyButton.Name = "easyButton";
+            easyButton.Size = new Size(215, 52);
+            easyButton.TabIndex = 8;
+            easyButton.Text = "EASY";
+            easyButton.UseVisualStyleBackColor = true;
+            easyButton.Visible = false;
+            easyButton.Click += easyButton_Click;
+            // 
+            // hardButton
+            // 
+            hardButton.Location = new Point(483, 290);
+            hardButton.Name = "hardButton";
+            hardButton.Size = new Size(215, 52);
+            hardButton.TabIndex = 9;
+            hardButton.Text = "HARD";
+            hardButton.UseVisualStyleBackColor = true;
+            hardButton.Visible = false;
+            hardButton.Click += hardButton_Click;
+            // 
+            // mediumButton
+            // 
+            mediumButton.Location = new Point(483, 232);
+            mediumButton.Name = "mediumButton";
+            mediumButton.Size = new Size(215, 52);
+            mediumButton.TabIndex = 10;
+            mediumButton.Text = "MEDIUM";
+            mediumButton.UseVisualStyleBackColor = true;
+            mediumButton.Visible = false;
+            mediumButton.Click += mediumButton_Click;
+            // 
+            // expertButton
+            // 
+            expertButton.Location = new Point(483, 348);
+            expertButton.Name = "expertButton";
+            expertButton.Size = new Size(215, 52);
+            expertButton.TabIndex = 11;
+            expertButton.Text = "EXPERT";
+            expertButton.UseVisualStyleBackColor = true;
+            expertButton.Visible = false;
+            expertButton.Click += expertButton_Click;
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Location = new Point(759, 97);
+            label3.Name = "label3";
+            label3.Size = new Size(38, 15);
+            label3.TabIndex = 12;
+            label3.Text = "label3";
             // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(843, 725);
-            Controls.Add(menuButton);
+            Controls.Add(label3);
+            Controls.Add(expertButton);
+            Controls.Add(mediumButton);
+            Controls.Add(hardButton);
+            Controls.Add(easyButton);
+            Controls.Add(label2);
             Controls.Add(exitButton);
-            Controls.Add(howPlayButton);
             Controls.Add(difficultyButton);
             Controls.Add(playButton);
             Controls.Add(label1);
@@ -144,8 +197,12 @@
         private Label label1;
         private Button playButton;
         private Button difficultyButton;
-        private Button howPlayButton;
         private Button exitButton;
-        private Button menuButton;
+        private Label label2;
+        private Button easyButton;
+        private Button hardButton;
+        private Button mediumButton;
+        private Button expertButton;
+        private Label label3;
     }
 }

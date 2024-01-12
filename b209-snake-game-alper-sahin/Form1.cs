@@ -5,6 +5,7 @@ namespace b209_snake_game_alper_sahin
 {
     public partial class Form1 : Form
     {
+
         public Form1()
         {
             InitializeComponent();
@@ -17,6 +18,7 @@ namespace b209_snake_game_alper_sahin
         Point headPosition;
         int lastSegment;
         Random random;
+        int second = 100;
         enum MatrixObject
         {
             Food = -1,
@@ -36,42 +38,47 @@ namespace b209_snake_game_alper_sahin
         }
         private void playButton_Click(object sender, EventArgs e)
         {
+            
+            random = new Random();
+            timer = new System.Windows.Forms.Timer();
+            timer.Interval = second;
             PlayVisible();
             timer.Start();
             timer.Tick += Timer_Tick;
             sizeMatrix = 20;
             matrix = new int[sizeMatrix, sizeMatrix];
+            label3.Text = timer.Interval.ToString();
             Initialize();
 
         }
         private void PlayVisible()
         {
-            menuButton.Visible = true;
             this.KeyPreview = true;
             pictureBox1.Visible = true;
             scoreText.Visible = true;
             label1.Visible = true;
+            label3.Visible = true;
+
             playButton.Visible = false;
             difficultyButton.Visible = false;
-            howPlayButton.Visible = false;
             exitButton.Visible = false;
+            label2.Visible = false;
         }
 
         private void MainMenuVisible()
         {
-            random = new Random();
-            timer = new System.Windows.Forms.Timer();
-            timer.Interval = 100;
-            timer.Stop();
-            menuButton.Visible = false;
+            
+
+            //timer.Stop();
             pictureBox1.Visible = false;
             scoreText.Visible = false;
             label1.Visible = false;
+            label3.Visible = false;
 
             playButton.Visible = true;
             difficultyButton.Visible = true;
-            howPlayButton.Visible = true;
             exitButton.Visible = true;
+            label2.Visible = true;
         }
         private void Initialize()
         {
@@ -156,8 +163,8 @@ namespace b209_snake_game_alper_sahin
             if (walkPosition.X < 0 || walkPosition.Y < 0 || walkPosition.X == sizeMatrix || walkPosition.Y == sizeMatrix || matrix[walkPosition.X, walkPosition.Y] > 0)
             {
                 timer.Stop();
-                Thread.Sleep(1000);
-                Initialize();
+                //Thread.Sleep(1000);
+                MainMenuVisible();
                 return;
             }
             if (matrix[walkPosition.X, walkPosition.Y] == (int)MatrixObject.Food)
@@ -231,9 +238,57 @@ namespace b209_snake_game_alper_sahin
             matrix[foodPosition.X, foodPosition.Y] = (int)MatrixObject.Food;
         }
 
-        private void menuButton_Click(object sender, EventArgs e)
+
+
+        private void exitButton_Click(object sender, EventArgs e)
         {
-            MainMenuVisible();
+            Application.Exit();
+        }
+
+        private void difficultyButton_Click(object sender, EventArgs e)
+        {
+            easyButton.Visible = true;
+            mediumButton.Visible = true;
+            hardButton.Visible = true;
+            expertButton.Visible = true;
+
+        }
+
+        private void easyButton_Click(object sender, EventArgs e)
+        {
+            second = 2000; // 2 saniye
+            label2.Text = second.ToString();
+            DifficultyVisible();
+        }
+
+        private void mediumButton_Click(object sender, EventArgs e)
+        {
+            second = 1000; // 1 saniye
+            label2.Text = second.ToString();
+            DifficultyVisible();
+        }
+
+        private void hardButton_Click(object sender, EventArgs e)
+        {
+            second = 500; // 0.5 saniye
+            label2.Text = second.ToString();
+            DifficultyVisible();
+
+        }
+
+        private void expertButton_Click(object sender, EventArgs e)
+        {
+            second = 250; // 0.25 saniye
+            label2.Text = second.ToString();
+            DifficultyVisible();
+
+        }
+        private void DifficultyVisible()
+        {
+            easyButton.Visible = false;
+            mediumButton.Visible = false;
+            hardButton.Visible = false;
+            expertButton.Visible = false;
         }
     }
 }
