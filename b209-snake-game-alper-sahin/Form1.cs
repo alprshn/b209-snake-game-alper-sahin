@@ -32,6 +32,7 @@ namespace b209_snake_game_alper_sahin
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            MainMenuVisible();
             random = new Random();
             timer = new System.Windows.Forms.Timer();
             timer.Interval = 100;
@@ -39,23 +40,33 @@ namespace b209_snake_game_alper_sahin
         }
         private void playButton_Click(object sender, EventArgs e)
         {
-            this.KeyPreview = true;
-            pictureBox1.Visible = true;
-            scoreText.Visible = true;
-            label1.Visible = true;
+            PlayVisible();
             timer.Start();
             timer.Tick += Timer_Tick;
             sizeMatrix = 20;
             matrix = new int[sizeMatrix, sizeMatrix];
             Initialize();
+            
+        }
+        private void PlayVisible()
+        {
+            menuButton.Visible=true;
+            this.KeyPreview = true;
+            pictureBox1.Visible = true;
+            scoreText.Visible = true;
+            label1.Visible = true;
             playButton.Visible = false;
             difficultyButton.Visible = false;
             howPlayButton.Visible = false;
             exitButton.Visible = false;
         }
+
         private void MainMenuVisible()
         {
-
+            menuButton.Visible = false;
+            pictureBox1.Visible = false;
+            scoreText.Visible = false;
+            label1.Visible = false;
         }
         private void Initialize()
         {

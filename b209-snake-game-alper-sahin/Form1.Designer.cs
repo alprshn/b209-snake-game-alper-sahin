@@ -35,6 +35,7 @@
             difficultyButton = new Button();
             howPlayButton = new Button();
             exitButton = new Button();
+            menuButton = new Button();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
@@ -104,11 +105,21 @@
             exitButton.Text = "Exit";
             exitButton.UseVisualStyleBackColor = true;
             // 
+            // menuButton
+            // 
+            menuButton.Location = new Point(738, 80);
+            menuButton.Name = "menuButton";
+            menuButton.Size = new Size(75, 23);
+            menuButton.TabIndex = 7;
+            menuButton.Text = "Main Menu";
+            menuButton.UseVisualStyleBackColor = true;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(843, 725);
+            Controls.Add(menuButton);
             Controls.Add(exitButton);
             Controls.Add(howPlayButton);
             Controls.Add(difficultyButton);
@@ -134,5 +145,6 @@
         private Button difficultyButton;
         private Button howPlayButton;
         private Button exitButton;
+        private Button menuButton;
     }
 }
