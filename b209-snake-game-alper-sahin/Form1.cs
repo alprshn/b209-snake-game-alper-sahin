@@ -114,18 +114,19 @@ namespace b209_snake_game_alper_sahin
                 default:
                     throw new Exception("It is not possible fot the snake to not have a direction");
             }
+            if (walkPosition.X < 0 || walkPosition.Y< 0 ||walkPosition.X == sizeMatrix || walkPosition.Y == sizeMatrix || matrix[walkPosition.X, walkPosition.Y] > 0)
+            {
+                Initialize();
+                return;
+            }
             if (matrix[walkPosition.X, walkPosition.Y] == (int)MatrixObject.Food)
             {
                 lastSegment++;
                 GenerateFood();
             }
-            else if (matrix[walkPosition.X,walkPosition.Y] > 0)
-            {
-                Initialize();
-            }
+            
             matrix[walkPosition.X, walkPosition.Y] = 1;
             matrix[headPosition.X, headPosition.Y]++;
-            headPosition = walkPosition;
 
             for (int i = 0; i < sizeMatrix; i++)
             {
@@ -142,6 +143,7 @@ namespace b209_snake_game_alper_sahin
                     
                 }
             }
+            headPosition = walkPosition;
         }
 
         private void Form1_KeyPress(object sender, KeyPressEventArgs e)
