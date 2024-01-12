@@ -14,6 +14,7 @@ namespace b209_snake_game_alper_sahin
         int sizeMatrix;
         int[,] matrix;
         SnakeDirection direction;
+        Point headPosition;
         int lastSegment;
         Random random;  
         enum MatrixObject
@@ -44,6 +45,7 @@ namespace b209_snake_game_alper_sahin
         private void Initialize()
         {
             GenerateFood();
+            headPosition = new Point(5, 5);
             matrix[5, 5] = 1;
             matrix[6, 5] = 2;
             matrix[7, 5] = 3;
@@ -115,7 +117,7 @@ namespace b209_snake_game_alper_sahin
                             case SnakeDirection.Up:
                                 walkPosition = new Point(i, j - 1);
                                 break;
-                            case SnakeDirection.Right:
+                            case SnakeDirection.Right:  
                                 walkPosition = new Point(i + 1, j);
                                 break;
                             case SnakeDirection.Down:
