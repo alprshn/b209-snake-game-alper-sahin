@@ -44,6 +44,13 @@ namespace b209_snake_game_alper_sahin
 
         private void Initialize()
         {
+            for (int i = 0; i < sizeMatrix; i++)
+            {
+                for (int j = 0; j < sizeMatrix; j++)
+                {
+                    matrix[i, j] = 0;
+                }
+            }
             GenerateFood();
             headPosition = new Point(5, 5);
             matrix[5, 5] = 1;
