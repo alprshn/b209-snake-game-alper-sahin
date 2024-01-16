@@ -19,7 +19,7 @@ namespace b209_snake_game_alper_sahin
         Point headPosition;
         int lastSegment;
         Random random;
-        int second = 100;
+        int second = 250;
 
         enum MatrixObject
         {
@@ -33,77 +33,24 @@ namespace b209_snake_game_alper_sahin
             Down,
             Left
         }
-        private void TxtRead()
-        {
-
-            //StreamReader streamReader = File.OpenText("..\\..\\..\\ratings.txt");
-
-            string filePath = "..\\..\\..\\ratings.txt";
-            
-            List<PlayerRanking> players = ReadPlayer(filePath);
-
-            players = players.OrderByDescending(o => o.Score).ToList();
-
-            listView1.Items.Clear();
-
-            foreach (var player in players)
-            {
-                ListViewItem item = new ListViewItem(player.Ranking.ToString());
-                item.SubItems.Add(player.Name);
-                item.SubItems.Add(player.Score.ToString());
-                listView1.Items.Add(item);
-            }
-        }
-
-        private List<PlayerRanking> ReadPlayer(string filePath)
-        {
-            List<PlayerRanking> players = new List<PlayerRanking>();
-
-            // Dosyayý satýr satýr oku
-            foreach (string line in File.ReadAllLines(filePath))
-            {
-                // Satýrdaki boþluklarý temizle
-                string cleanLine = line.Trim();
-
-                // Satýr boþsa atla
-                if (string.IsNullOrEmpty(cleanLine))
-                    continue;
-
-                // Satýrý parçala
-                string[] parts = cleanLine.Split('\t');
-
-                // Parçalarý kontrol et
-                if (parts.Length >= 3)
-                {
-                    if (int.TryParse(parts[0].Replace(".", ""), out int rank) && int.TryParse(parts[2], out int score))
-                    {
-                        // Oyuncu nesnesini oluþtur ve listeye ekle
-                        PlayerRanking player = new PlayerRanking(rank, parts[1], score);
-                        players.Add(player);
-                    }
-                }
-            }
-
-            return players;
-        }
-
-    private void Form1_Load(object sender, EventArgs e)
+        private void Form1_Load(object sender, EventArgs e)
         {
             MainMenuVisible();
-            TxtRead();
         }
         private void playButton_Click(object sender, EventArgs e)
         {
 
             random = new Random();
             timer = new System.Windows.Forms.Timer();
-            timer.Interval = second;
+
             PlayVisible();
-            timer.Start();
             timer.Tick += Timer_Tick;
             sizeMatrix = 20;
             matrix = new int[sizeMatrix, sizeMatrix];
+            timer.Interval = second;
+            timer.Start();
             label3.Text = timer.Interval.ToString();
+
             Initialize();
 
         }
@@ -115,17 +62,29 @@ namespace b209_snake_game_alper_sahin
             label1.Visible = true;
             label3.Visible = true;
 
+
             playButton.Visible = false;
             difficultyButton.Visible = false;
             exitButton.Visible = false;
             label2.Visible = false;
+            label5.Visible = false;
+            label6.Visible = false;
+            label7.Visible = false;
+            label8.Visible = false;
+            label8.Visible = false;
+            label8.Visible = false;
+            label9.Visible = false;
+            label10.Visible = false;
+            label11.Visible = false;
+            label12.Visible = false;
+            label13.Visible = false;
+            label14.Visible = false;
+            label15.Visible = false;
+            listView1.Visible = false;
         }
 
         private void MainMenuVisible()
         {
-
-
-            //timer.Stop();
             pictureBox1.Visible = false;
             scoreText.Visible = false;
             label1.Visible = false;
@@ -135,6 +94,20 @@ namespace b209_snake_game_alper_sahin
             difficultyButton.Visible = true;
             exitButton.Visible = true;
             label2.Visible = true;
+            label5.Visible = true;
+            label6.Visible = true;
+            label7.Visible = true;
+            label8.Visible = true;
+            label8.Visible = true;
+            label8.Visible = true;
+            label9.Visible = true;
+            label10.Visible = true;
+            label11.Visible = true;
+            label12.Visible = true;
+            label13.Visible = true;
+            label14.Visible = true;
+            label15.Visible = true;
+            listView1.Visible = true;
         }
         private void Initialize()
         {

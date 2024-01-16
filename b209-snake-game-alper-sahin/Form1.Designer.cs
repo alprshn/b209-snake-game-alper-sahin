@@ -42,6 +42,18 @@
             label3 = new Label();
             label4 = new Label();
             listView1 = new ListView();
+            label5 = new Label();
+            label6 = new Label();
+            label7 = new Label();
+            label8 = new Label();
+            label9 = new Label();
+            label10 = new Label();
+            label11 = new Label();
+            label12 = new Label();
+            label13 = new Label();
+            label14 = new Label();
+            label15 = new Label();
+            textBox1 = new TextBox();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
@@ -176,17 +188,135 @@
             // 
             // listView1
             // 
-            listView1.Location = new Point(65, 89);
+            listView1.Location = new Point(81, 104);
             listView1.Name = "listView1";
-            listView1.Size = new Size(121, 97);
+            listView1.Size = new Size(148, 377);
             listView1.TabIndex = 14;
             listView1.UseCompatibleStateImageBehavior = false;
+            // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Location = new Point(129, 86);
+            label5.Name = "label5";
+            label5.Size = new Size(46, 15);
+            label5.TabIndex = 15;
+            label5.Text = "Ratings";
+            // 
+            // label6
+            // 
+            label6.AutoSize = true;
+            label6.Location = new Point(29, 122);
+            label6.Name = "label6";
+            label6.Size = new Size(46, 15);
+            label6.TabIndex = 16;
+            label6.Text = "Ratings";
+            // 
+            // label7
+            // 
+            label7.AutoSize = true;
+            label7.Location = new Point(29, 161);
+            label7.Name = "label7";
+            label7.Size = new Size(46, 15);
+            label7.TabIndex = 17;
+            label7.Text = "Ratings";
+            // 
+            // label8
+            // 
+            label8.AutoSize = true;
+            label8.Location = new Point(29, 193);
+            label8.Name = "label8";
+            label8.Size = new Size(46, 15);
+            label8.TabIndex = 18;
+            label8.Text = "Ratings";
+            // 
+            // label9
+            // 
+            label9.AutoSize = true;
+            label9.Location = new Point(29, 232);
+            label9.Name = "label9";
+            label9.Size = new Size(46, 15);
+            label9.TabIndex = 19;
+            label9.Text = "Ratings";
+            // 
+            // label10
+            // 
+            label10.AutoSize = true;
+            label10.Location = new Point(29, 269);
+            label10.Name = "label10";
+            label10.Size = new Size(46, 15);
+            label10.TabIndex = 20;
+            label10.Text = "Ratings";
+            // 
+            // label11
+            // 
+            label11.AutoSize = true;
+            label11.Location = new Point(29, 456);
+            label11.Name = "label11";
+            label11.Size = new Size(46, 15);
+            label11.TabIndex = 25;
+            label11.Text = "Ratings";
+            // 
+            // label12
+            // 
+            label12.AutoSize = true;
+            label12.Location = new Point(29, 419);
+            label12.Name = "label12";
+            label12.Size = new Size(46, 15);
+            label12.TabIndex = 24;
+            label12.Text = "Ratings";
+            // 
+            // label13
+            // 
+            label13.AutoSize = true;
+            label13.Location = new Point(29, 380);
+            label13.Name = "label13";
+            label13.Size = new Size(46, 15);
+            label13.TabIndex = 23;
+            label13.Text = "Ratings";
+            // 
+            // label14
+            // 
+            label14.AutoSize = true;
+            label14.Location = new Point(29, 348);
+            label14.Name = "label14";
+            label14.Size = new Size(46, 15);
+            label14.TabIndex = 22;
+            label14.Text = "Ratings";
+            // 
+            // label15
+            // 
+            label15.AutoSize = true;
+            label15.Location = new Point(29, 309);
+            label15.Name = "label15";
+            label15.Size = new Size(46, 15);
+            label15.TabIndex = 21;
+            label15.Text = "Ratings";
+            // 
+            // textBox1
+            // 
+            textBox1.Location = new Point(402, 136);
+            textBox1.Name = "textBox1";
+            textBox1.Size = new Size(100, 23);
+            textBox1.TabIndex = 26;
             // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(843, 725);
+            Controls.Add(textBox1);
+            Controls.Add(label11);
+            Controls.Add(label12);
+            Controls.Add(label13);
+            Controls.Add(label14);
+            Controls.Add(label15);
+            Controls.Add(label10);
+            Controls.Add(label9);
+            Controls.Add(label8);
+            Controls.Add(label7);
+            Controls.Add(label6);
+            Controls.Add(label5);
             Controls.Add(listView1);
             Controls.Add(label4);
             Controls.Add(label3);
@@ -226,5 +356,17 @@
         private Label label3;
         private Label label4;
         private ListView listView1;
+        private Label label5;
+        private Label label6;
+        private Label label7;
+        private Label label8;
+        private Label label9;
+        private Label label10;
+        private Label label11;
+        private Label label12;
+        private Label label13;
+        private Label label14;
+        private Label label15;
+        private TextBox textBox1;
     }
 }
