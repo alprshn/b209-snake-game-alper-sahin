@@ -197,6 +197,7 @@ namespace b209_snake_game_alper_sahin
             {
                 timer.Stop();
                 //Thread.Sleep(1000);
+                SaveDatabeseClick();
                 MainMenuVisible();
                 return;
             }
