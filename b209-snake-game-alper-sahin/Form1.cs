@@ -1,4 +1,5 @@
 using System.Drawing;
+using System.Reflection;
 using System.Windows.Forms;
 
 namespace b209_snake_game_alper_sahin
@@ -19,6 +20,7 @@ namespace b209_snake_game_alper_sahin
         int lastSegment;
         Random random;
         int second = 100;
+
         enum MatrixObject
         {
             Food = -1,
@@ -31,14 +33,68 @@ namespace b209_snake_game_alper_sahin
             Down,
             Left
         }
+        private void TxtRead()
+        {
 
-        private void Form1_Load(object sender, EventArgs e)
+            //StreamReader streamReader = File.OpenText("..\\..\\..\\ratings.txt");
+
+            string filePath = "..\\..\\..\\ratings.txt";
+            
+            List<PlayerRanking> players = ReadPlayer(filePath);
+
+            players = players.OrderByDescending(o => o.Score).ToList();
+
+            listView1.Items.Clear();
+
+            foreach (var player in players)
+            {
+                ListViewItem item = new ListViewItem(player.Ranking.ToString());
+                item.SubItems.Add(player.Name);
+                item.SubItems.Add(player.Score.ToString());
+                listView1.Items.Add(item);
+            }
+        }
+
+        private List<PlayerRanking> ReadPlayer(string filePath)
+        {
+            List<PlayerRanking> players = new List<PlayerRanking>();
+
+            // Dosyayý satýr satýr oku
+            foreach (string line in File.ReadAllLines(filePath))
+            {
+                // Satýrdaki boþluklarý temizle
+                string cleanLine = line.Trim();
+
+                // Satýr boþsa atla
+                if (string.IsNullOrEmpty(cleanLine))
+                    continue;
+
+                // Satýrý parçala
+                string[] parts = cleanLine.Split('\t');
+
+                // Parçalarý kontrol et
+                if (parts.Length >= 3)
+                {
+                    if (int.TryParse(parts[0].Replace(".", ""), out int rank) && int.TryParse(parts[2], out int score))
+                    {
+                        // Oyuncu nesnesini oluþtur ve listeye ekle
+                        PlayerRanking player = new PlayerRanking(rank, parts[1], score);
+                        players.Add(player);
+                    }
+                }
+            }
+
+            return players;
+        }
+
+    private void Form1_Load(object sender, EventArgs e)
         {
             MainMenuVisible();
+            TxtRead();
         }
         private void playButton_Click(object sender, EventArgs e)
         {
-            
+
             random = new Random();
             timer = new System.Windows.Forms.Timer();
             timer.Interval = second;
@@ -67,7 +123,7 @@ namespace b209_snake_game_alper_sahin
 
         private void MainMenuVisible()
         {
-            
+
 
             //timer.Stop();
             pictureBox1.Visible = false;

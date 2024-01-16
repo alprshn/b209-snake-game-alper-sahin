@@ -40,6 +40,8 @@
             mediumButton = new Button();
             expertButton = new Button();
             label3 = new Label();
+            label4 = new Label();
+            listView1 = new ListView();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
@@ -164,11 +166,29 @@
             label3.TabIndex = 12;
             label3.Text = "label3";
             // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Location = new Point(65, 71);
+            label4.Name = "label4";
+            label4.Size = new Size(0, 15);
+            label4.TabIndex = 13;
+            // 
+            // listView1
+            // 
+            listView1.Location = new Point(65, 89);
+            listView1.Name = "listView1";
+            listView1.Size = new Size(121, 97);
+            listView1.TabIndex = 14;
+            listView1.UseCompatibleStateImageBehavior = false;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(843, 725);
+            Controls.Add(listView1);
+            Controls.Add(label4);
             Controls.Add(label3);
             Controls.Add(expertButton);
             Controls.Add(mediumButton);
@@ -204,5 +224,7 @@
         private Button mediumButton;
         private Button expertButton;
         private Label label3;
+        private Label label4;
+        private ListView listView1;
     }
 }
