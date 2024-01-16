@@ -6,7 +6,7 @@ namespace b209_snake_game_alper_sahin
 {
     public partial class Form1 : Form
     {
-
+        private List<PlayerRanking> players;
         public Form1()
         {
             InitializeComponent();
@@ -80,7 +80,7 @@ namespace b209_snake_game_alper_sahin
             label13.Visible = false;
             label14.Visible = false;
             label15.Visible = false;
-            listView1.Visible = false;
+            listBox1.Visible = false;
         }
 
         private void MainMenuVisible()
@@ -107,7 +107,7 @@ namespace b209_snake_game_alper_sahin
             label13.Visible = true;
             label14.Visible = true;
             label15.Visible = true;
-            listView1.Visible = true;
+            listBox1.Visible = true;
         }
         private void Initialize()
         {
@@ -318,6 +318,19 @@ namespace b209_snake_game_alper_sahin
             mediumButton.Visible = false;
             hardButton.Visible = false;
             expertButton.Visible = false;
+        }
+
+
+        /////////////////////TXT FÝLES DATABASE//////////////////////
+
+        private void PlayerList()
+        {
+            listBox1.Items.Clear();
+
+            foreach (var player in players.OrderByDescending(o => o.Score))
+            {
+                listBox1.Items.Add($"{player.Name}: {player.Score} puan");
+            }
         }
     }
 }

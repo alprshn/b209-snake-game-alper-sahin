@@ -41,7 +41,6 @@
             expertButton = new Button();
             label3 = new Label();
             label4 = new Label();
-            listView1 = new ListView();
             label5 = new Label();
             label6 = new Label();
             label7 = new Label();
@@ -54,6 +53,7 @@
             label14 = new Label();
             label15 = new Label();
             textBox1 = new TextBox();
+            listBox1 = new ListBox();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
@@ -186,14 +186,6 @@
             label4.Size = new Size(0, 15);
             label4.TabIndex = 13;
             // 
-            // listView1
-            // 
-            listView1.Location = new Point(81, 104);
-            listView1.Name = "listView1";
-            listView1.Size = new Size(148, 377);
-            listView1.TabIndex = 14;
-            listView1.UseCompatibleStateImageBehavior = false;
-            // 
             // label5
             // 
             label5.AutoSize = true;
@@ -300,11 +292,21 @@
             textBox1.Size = new Size(100, 23);
             textBox1.TabIndex = 26;
             // 
+            // listBox1
+            // 
+            listBox1.FormattingEnabled = true;
+            listBox1.ItemHeight = 15;
+            listBox1.Location = new Point(91, 122);
+            listBox1.Name = "listBox1";
+            listBox1.Size = new Size(120, 364);
+            listBox1.TabIndex = 27;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(843, 725);
+            Controls.Add(listBox1);
             Controls.Add(textBox1);
             Controls.Add(label11);
             Controls.Add(label12);
@@ -317,7 +319,6 @@
             Controls.Add(label7);
             Controls.Add(label6);
             Controls.Add(label5);
-            Controls.Add(listView1);
             Controls.Add(label4);
             Controls.Add(label3);
             Controls.Add(expertButton);
@@ -355,7 +356,6 @@
         private Button expertButton;
         private Label label3;
         private Label label4;
-        private ListView listView1;
         private Label label5;
         private Label label6;
         private Label label7;
@@ -368,5 +368,6 @@
         private Label label14;
         private Label label15;
         private TextBox textBox1;
+        private ListBox listBox1;
     }
 }
