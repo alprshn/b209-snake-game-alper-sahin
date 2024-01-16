@@ -1,6 +1,7 @@
 using System.Drawing;
 using System.Reflection;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace b209_snake_game_alper_sahin
 {
@@ -10,6 +11,9 @@ namespace b209_snake_game_alper_sahin
         public Form1()
         {
             InitializeComponent();
+            players = new List<PlayerRanking>();
+            UploadPlayers();
+            PlayerList();
         }
 
         System.Windows.Forms.Timer timer;
@@ -329,8 +333,61 @@ namespace b209_snake_game_alper_sahin
 
             foreach (var player in players.OrderByDescending(o => o.Score))
             {
-                listBox1.Items.Add($"{player.Name}: {player.Score} puan");
+                listBox1.Items.Add($"{player.Name}: {player.Score} score");
             }
         }
+
+        private void UploadPlayers()
+        {
+            try
+            {
+                string[] satirlar = File.ReadAllLines("..\\..\\..\\ratings.txt");
+
+                foreach (var satir in satirlar)
+                {
+                    string[] bilgiler = satir.Split(' ');
+                    string name = bilgiler[0];
+                    int score = int.Parse(bilgiler[1]);
+
+                    players.Add(new PlayerRanking { Name = name, Score = score });
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Not defteri yüklenirken bir hata oluþtu: " + ex.Message);
+            }
+        }
+
+        private void SaveDatabeseClick()
+        {
+            string name = textBox1.Text;
+            int score;
+
+            if (int.TryParse(scoreText.Text, out score))
+            {
+                players.Add(new PlayerRanking { Name = name, Score = score });
+                PlayerList();
+                textBox1.Clear();
+                //textBox2.Clear();
+
+                try
+                {
+                    using (StreamWriter sw = File.AppendText("..\\..\\..\\ratings.txt"))
+                    {
+                        sw.WriteLine($"{name} {score}");
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Not defterine yazýlýrken bir hata oluþtu: " + ex.Message);
+                }
+            }
+            else
+            {
+                MessageBox.Show("Geçerli bir puan girin.");
+            }
+        }
+
+
     }
 }
