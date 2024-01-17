@@ -54,7 +54,6 @@
             label15 = new Label();
             textBox1 = new TextBox();
             listBox1 = new ListBox();
-            label16 = new Label();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
@@ -302,21 +301,11 @@
             listBox1.Size = new Size(120, 364);
             listBox1.TabIndex = 27;
             // 
-            // label16
-            // 
-            label16.AutoSize = true;
-            label16.Location = new Point(393, 371);
-            label16.Name = "label16";
-            label16.Size = new Size(44, 15);
-            label16.TabIndex = 28;
-            label16.Text = "label16";
-            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(843, 725);
-            Controls.Add(label16);
             Controls.Add(listBox1);
             Controls.Add(textBox1);
             Controls.Add(label11);
@@ -380,6 +369,5 @@
         private Label label15;
         private TextBox textBox1;
         private ListBox listBox1;
-        private Label label16;
     }
 }

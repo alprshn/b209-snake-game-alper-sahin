@@ -85,6 +85,9 @@ namespace b209_snake_game_alper_sahin
             label14.Visible = false;
             label15.Visible = false;
             listBox1.Visible = false;
+            textBox1.Visible = false;
+            textBox1.Enabled = false;
+            textBox1.Parent.Focus();
         }
 
         private void MainMenuVisible()
@@ -112,6 +115,8 @@ namespace b209_snake_game_alper_sahin
             label14.Visible = true;
             label15.Visible = true;
             listBox1.Visible = true;
+            textBox1.Visible = true;
+            textBox1.Enabled = true;
         }
         private void Initialize()
         {
