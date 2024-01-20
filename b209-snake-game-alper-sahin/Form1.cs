@@ -43,16 +43,16 @@ namespace b209_snake_game_alper_sahin
         }
         private void playButton_Click(object sender, EventArgs e)
         {
-
+            PlayVisible();
             random = new Random();
             timer = new System.Windows.Forms.Timer();
 
-            PlayVisible();
+
             timer.Tick += Timer_Tick;
-            sizeMatrix = 20;
+            sizeMatrix = 17;
             matrix = new int[sizeMatrix, sizeMatrix];
-            timer.Interval = second;
             timer.Start();
+            timer.Interval = second;
             label3.Text = timer.Interval.ToString();
 
             Initialize();
@@ -87,6 +87,7 @@ namespace b209_snake_game_alper_sahin
             listBox1.Visible = false;
             textBox1.Visible = false;
             textBox1.Enabled = false;
+            DifficultyVisible();
             textBox1.Parent.Focus();
         }
 
@@ -148,7 +149,7 @@ namespace b209_snake_game_alper_sahin
             Bitmap bitmap = new Bitmap(pictureBox1.Width, pictureBox1.Height);
             Graphics graphics = Graphics.FromImage(bitmap);
 
-            graphics.FillRectangle(Brushes.Gray, 0, 0, pictureBox1.Width, pictureBox1.Height);
+            graphics.FillRectangle(Brushes.White, 0, 0, pictureBox1.Width, pictureBox1.Height);
 
             SizeF sizeCell = new SizeF((float)pictureBox1.Width / sizeMatrix, (float)pictureBox1.Height / sizeMatrix);
 
@@ -156,20 +157,23 @@ namespace b209_snake_game_alper_sahin
             {
                 for (int j = 0; j < sizeMatrix; j++)
                 {
-                    if (matrix[i, j] == 0)
+                    if (i == 0 || j == sizeMatrix - 1 || i == sizeMatrix - 1 || j == 0)
                     {
-                        graphics.FillRectangle(Brushes.White, i * sizeCell.Width + 1, j * sizeCell.Height + 1, sizeCell.Width - 2, sizeCell.Height - 2);
+                        graphics.FillRectangle(Brushes.Gray, i * sizeCell.Width, j * sizeCell.Height, sizeCell.Width - 3, sizeCell.Height - 3);
 
+                    }
+                    else if (matrix[i, j] == 0)
+                    {
+                        graphics.FillRectangle(Brushes.LightGreen, i * sizeCell.Width , j * sizeCell.Height , sizeCell.Width - 3, sizeCell.Height - 3);
                     }
                     else if (matrix[i, j] == (int)MatrixObject.Food)
                     {
-                        graphics.FillRectangle(Brushes.Red, i * sizeCell.Width + 1, j * sizeCell.Height + 1, sizeCell.Width - 2, sizeCell.Height - 2);
+                        graphics.FillRectangle(Brushes.Red, i * sizeCell.Width, j * sizeCell.Height, sizeCell.Width - 3, sizeCell.Height - 3);
 
                     }
                     else
                     {
-                        graphics.FillRectangle(Brushes.Blue, i * sizeCell.Width + 1, j * sizeCell.Height + 1, sizeCell.Width - 2, sizeCell.Height - 2);
-
+                        graphics.FillRectangle(Brushes.DarkGreen, i * sizeCell.Width, j * sizeCell.Height, sizeCell.Width - 3, sizeCell.Height - 3);
                     }
                 }
             }
@@ -198,7 +202,7 @@ namespace b209_snake_game_alper_sahin
                 default:
                     throw new Exception("It is not possible fot the snake to not have a direction");
             }
-            if (walkPosition.X < 0 || walkPosition.Y < 0 || walkPosition.X == sizeMatrix || walkPosition.Y == sizeMatrix || matrix[walkPosition.X, walkPosition.Y] > 0)
+            if (walkPosition.X < 0 || walkPosition.Y < 0 || walkPosition.X == sizeMatrix-1 || walkPosition.Y == sizeMatrix-1 || matrix[walkPosition.X, walkPosition.Y] > 0)
             {
                 timer.Stop();
                 //Thread.Sleep(1000);
@@ -215,9 +219,9 @@ namespace b209_snake_game_alper_sahin
             matrix[walkPosition.X, walkPosition.Y] = 1;
             matrix[headPosition.X, headPosition.Y]++;
 
-            for (int i = 0; i < sizeMatrix; i++)
+            for (int i = 0; i < sizeMatrix-1; i++)
             {
-                for (int j = 0; j < sizeMatrix; j++)
+                for (int j = 0; j < sizeMatrix - 1; j++)
                 {
                     if (matrix[i, j] == lastSegment)
                     {
@@ -232,47 +236,42 @@ namespace b209_snake_game_alper_sahin
             }
             headPosition = walkPosition;
         }
-
-        private void Form1_KeyPress(object sender, KeyPressEventArgs e)
+        private void Form1_KeyDown(object sender, KeyEventArgs e)
         {
-            switch (e.KeyChar)
+            switch (e.KeyCode)
             {
-                case 'w':
-                case 'W':
+                case Keys.Up:
                     if (direction != SnakeDirection.Down)
                         direction = SnakeDirection.Up;
                     break;
-                case 'D':
-                case 'd':
+                case Keys.Right:
                     if (direction != SnakeDirection.Left)
                         direction = SnakeDirection.Right;
                     break;
-                case 'S':
-                case 's':
+                case Keys.Down:
                     if (direction != SnakeDirection.Up)
                         direction = SnakeDirection.Down;
                     break;
-                case 'A':
-                case 'a':
+                case Keys.Left:
                     if (direction != SnakeDirection.Right)
                         direction = SnakeDirection.Left;
                     break;
-                case ' ':
+                case Keys.Space:
                     if (timer.Enabled)
                         timer.Stop();
                     else
                         timer.Start();
                     break;
-
             }
         }
+        
 
         private void GenerateFood()
         {
             Point foodPosition;
             do
             {
-                foodPosition = new Point(random.Next() % sizeMatrix, random.Next() % sizeMatrix);
+                foodPosition = new Point(random.Next() % sizeMatrix-1, random.Next() % sizeMatrix-1);
             } while (matrix[foodPosition.X, foodPosition.Y] != 0);
             matrix[foodPosition.X, foodPosition.Y] = (int)MatrixObject.Food;
         }
@@ -394,6 +393,6 @@ namespace b209_snake_game_alper_sahin
             }
         }
 
-
+       
     }
 }

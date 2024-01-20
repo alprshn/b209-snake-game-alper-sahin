@@ -335,7 +335,7 @@
             Name = "Form1";
             Text = "Form1";
             Load += Form1_Load;
-            KeyPress += Form1_KeyPress;
+            KeyDown += Form1_KeyDown;
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
             PerformLayout();
