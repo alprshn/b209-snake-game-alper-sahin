@@ -50,7 +50,7 @@ namespace b209_snake_game_alper_sahin
 
             timer.Tick += Timer_Tick;
             sizeMatrix = 17;
-            matrix = new int[sizeMatrix, sizeMatrix];
+            matrix = new int[sizeMatrix - 1, sizeMatrix - 1];
             timer.Start();
             timer.Interval = second;
             label3.Text = timer.Interval.ToString();
@@ -122,9 +122,9 @@ namespace b209_snake_game_alper_sahin
         private void Initialize()
         {
             timer.Start();
-            for (int i = 0; i < sizeMatrix; i++)
+            for (int i = 1; i < sizeMatrix - 1; i++)
             {
-                for (int j = 0; j < sizeMatrix; j++)
+                for (int j = 1; j < sizeMatrix -1; j++)
                 {
                     matrix[i, j] = 0;
                 }
@@ -202,7 +202,7 @@ namespace b209_snake_game_alper_sahin
                 default:
                     throw new Exception("It is not possible fot the snake to not have a direction");
             }
-            if (walkPosition.X < 0 || walkPosition.Y < 0 || walkPosition.X == sizeMatrix-1 || walkPosition.Y == sizeMatrix-1 || matrix[walkPosition.X, walkPosition.Y] > 0)
+            if (walkPosition.X < 1 || walkPosition.Y < 1 || walkPosition.X == sizeMatrix-1 || walkPosition.Y == sizeMatrix-1 || matrix[walkPosition.X, walkPosition.Y] > 0)
             {
                 timer.Stop();
                 //Thread.Sleep(1000);
@@ -219,9 +219,9 @@ namespace b209_snake_game_alper_sahin
             matrix[walkPosition.X, walkPosition.Y] = 1;
             matrix[headPosition.X, headPosition.Y]++;
 
-            for (int i = 0; i < sizeMatrix-1; i++)
+            for (int i = 1; i < sizeMatrix-1; i++)
             {
-                for (int j = 0; j < sizeMatrix - 1; j++)
+                for (int j = 1; j < sizeMatrix - 1; j++)
                 {
                     if (matrix[i, j] == lastSegment)
                     {
@@ -271,7 +271,7 @@ namespace b209_snake_game_alper_sahin
             Point foodPosition;
             do
             {
-                foodPosition = new Point(random.Next() % sizeMatrix-1, random.Next() % sizeMatrix-1);
+                foodPosition = new Point(random.Next(1, sizeMatrix - 1), random.Next(1, sizeMatrix - 1));
             } while (matrix[foodPosition.X, foodPosition.Y] != 0);
             matrix[foodPosition.X, foodPosition.Y] = (int)MatrixObject.Food;
         }
