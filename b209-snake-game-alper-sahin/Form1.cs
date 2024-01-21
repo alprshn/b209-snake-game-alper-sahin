@@ -47,7 +47,6 @@ namespace b209_snake_game_alper_sahin
             random = new Random();
             timer = new System.Windows.Forms.Timer();
 
-
             timer.Tick += Timer_Tick;
             sizeMatrix = 17;
             matrix = new int[sizeMatrix - 1, sizeMatrix - 1];
@@ -65,7 +64,7 @@ namespace b209_snake_game_alper_sahin
             scoreText.Visible = true;
             label1.Visible = true;
             label3.Visible = true;
-
+            label16.Visible = true;
 
             playButton.Visible = false;
             difficultyButton.Visible = false;
@@ -97,6 +96,7 @@ namespace b209_snake_game_alper_sahin
             scoreText.Visible = false;
             label1.Visible = false;
             label3.Visible = false;
+            label16.Visible = false;
 
             playButton.Visible = true;
             difficultyButton.Visible = true;
@@ -124,7 +124,7 @@ namespace b209_snake_game_alper_sahin
             timer.Start();
             for (int i = 1; i < sizeMatrix - 1; i++)
             {
-                for (int j = 1; j < sizeMatrix -1; j++)
+                for (int j = 1; j < sizeMatrix - 1; j++)
                 {
                     matrix[i, j] = 0;
                 }
@@ -149,7 +149,7 @@ namespace b209_snake_game_alper_sahin
             Bitmap bitmap = new Bitmap(pictureBox1.Width, pictureBox1.Height);
             Graphics graphics = Graphics.FromImage(bitmap);
 
-            graphics.FillRectangle(Brushes.White, 0, 0, pictureBox1.Width, pictureBox1.Height);
+            graphics.FillRectangle(Brushes.SlateGray, 0, 0, pictureBox1.Width, pictureBox1.Height);
 
             SizeF sizeCell = new SizeF((float)pictureBox1.Width / sizeMatrix, (float)pictureBox1.Height / sizeMatrix);
 
@@ -159,12 +159,12 @@ namespace b209_snake_game_alper_sahin
                 {
                     if (i == 0 || j == sizeMatrix - 1 || i == sizeMatrix - 1 || j == 0)
                     {
-                        graphics.FillRectangle(Brushes.Gray, i * sizeCell.Width, j * sizeCell.Height, sizeCell.Width - 3, sizeCell.Height - 3);
+                        graphics.FillRectangle(Brushes.DarkSlateBlue, i * sizeCell.Width, j * sizeCell.Height, sizeCell.Width - 3, sizeCell.Height - 3);
 
                     }
                     else if (matrix[i, j] == 0)
                     {
-                        graphics.FillRectangle(Brushes.LightGreen, i * sizeCell.Width , j * sizeCell.Height , sizeCell.Width - 3, sizeCell.Height - 3);
+                        graphics.FillRectangle(Brushes.LightGreen, i * sizeCell.Width, j * sizeCell.Height, sizeCell.Width - 3, sizeCell.Height - 3);
                     }
                     else if (matrix[i, j] == (int)MatrixObject.Food)
                     {
@@ -202,10 +202,9 @@ namespace b209_snake_game_alper_sahin
                 default:
                     throw new Exception("It is not possible fot the snake to not have a direction");
             }
-            if (walkPosition.X < 1 || walkPosition.Y < 1 || walkPosition.X == sizeMatrix-1 || walkPosition.Y == sizeMatrix-1 || matrix[walkPosition.X, walkPosition.Y] > 0)
+            if (walkPosition.X < 1 || walkPosition.Y < 1 || walkPosition.X == sizeMatrix - 1 || walkPosition.Y == sizeMatrix - 1 || matrix[walkPosition.X, walkPosition.Y] > 0)
             {
                 timer.Stop();
-                //Thread.Sleep(1000);
                 SaveDatabeseClick();
                 MainMenuVisible();
                 return;
@@ -219,7 +218,7 @@ namespace b209_snake_game_alper_sahin
             matrix[walkPosition.X, walkPosition.Y] = 1;
             matrix[headPosition.X, headPosition.Y]++;
 
-            for (int i = 1; i < sizeMatrix-1; i++)
+            for (int i = 1; i < sizeMatrix - 1; i++)
             {
                 for (int j = 1; j < sizeMatrix - 1; j++)
                 {
@@ -264,7 +263,7 @@ namespace b209_snake_game_alper_sahin
                     break;
             }
         }
-        
+
 
         private void GenerateFood()
         {
@@ -294,21 +293,21 @@ namespace b209_snake_game_alper_sahin
 
         private void easyButton_Click(object sender, EventArgs e)
         {
-            second = 2000; // 2 saniye
+            second = 2000;
             label2.Text = second.ToString();
             DifficultyVisible();
         }
 
         private void mediumButton_Click(object sender, EventArgs e)
         {
-            second = 1000; // 1 saniye
+            second = 1000;
             label2.Text = second.ToString();
             DifficultyVisible();
         }
 
         private void hardButton_Click(object sender, EventArgs e)
         {
-            second = 500; // 0.5 saniye
+            second = 500;
             label2.Text = second.ToString();
             DifficultyVisible();
 
@@ -316,7 +315,7 @@ namespace b209_snake_game_alper_sahin
 
         private void expertButton_Click(object sender, EventArgs e)
         {
-            second = 250; // 0.25 saniye
+            second = 250;
             label2.Text = second.ToString();
             DifficultyVisible();
 
@@ -336,30 +335,32 @@ namespace b209_snake_game_alper_sahin
         {
             listBox1.Items.Clear();
 
-            foreach (var player in players.OrderByDescending(o => o.Score))
+            foreach (var player in players.OrderByDescending(o => o.Score).Take(10))
             {
-                listBox1.Items.Add($"{player.Name}: {player.Score} score");
+                listBox1.Items.Add($"{player.Name}: {player.Score} Score");
             }
+
+
         }
 
         private void UploadPlayers()
         {
             try
             {
-                string[] satirlar = File.ReadAllLines("..\\..\\..\\ratings.txt");
+                string[] lines = File.ReadAllLines("..\\..\\..\\ratings.txt");
 
-                foreach (var satir in satirlar)
+                foreach (var line in lines)
                 {
-                    string[] bilgiler = satir.Split(' ');
-                    string name = bilgiler[0];
-                    int score = int.Parse(bilgiler[1]);
+                    string[] info = line.Split(' ');
+                    string name = info[0];
+                    int score = int.Parse(info[1]);
 
                     players.Add(new PlayerRanking { Name = name, Score = score });
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Not defteri yüklenirken bir hata oluþtu: " + ex.Message);
+                MessageBox.Show("An error occurred while loading notebook: " + ex.Message);
             }
         }
 
@@ -373,8 +374,6 @@ namespace b209_snake_game_alper_sahin
                 players.Add(new PlayerRanking { Name = name, Score = score });
                 PlayerList();
                 textBox1.Clear();
-                //textBox2.Clear();
-
                 try
                 {
                     using (StreamWriter sw = File.AppendText("..\\..\\..\\ratings.txt"))
@@ -384,15 +383,11 @@ namespace b209_snake_game_alper_sahin
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("Not defterine yazýlýrken bir hata oluþtu: " + ex.Message);
+                    MessageBox.Show("An error occurred while writing to notepad: " + ex.Message);
                 }
-            }
-            else
-            {
-                MessageBox.Show("Geçerli bir puan girin.");
             }
         }
 
-       
+
     }
 }
