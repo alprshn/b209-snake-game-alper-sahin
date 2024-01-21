@@ -34,7 +34,6 @@
             playButton = new Button();
             difficultyButton = new Button();
             exitButton = new Button();
-            label2 = new Label();
             easyButton = new Button();
             hardButton = new Button();
             mediumButton = new Button();
@@ -56,7 +55,13 @@
             listBox1 = new ListBox();
             label16 = new Label();
             label17 = new Label();
+            label2 = new Label();
+            label18 = new Label();
+            numericUpDown1 = new NumericUpDown();
+            numericUpDown2 = new NumericUpDown();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)numericUpDown1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)numericUpDown2).BeginInit();
             SuspendLayout();
             // 
             // pictureBox1
@@ -120,15 +125,6 @@
             exitButton.UseVisualStyleBackColor = true;
             exitButton.Click += exitButton_Click;
             // 
-            // label2
-            // 
-            label2.AutoSize = true;
-            label2.Location = new Point(493, 143);
-            label2.Name = "label2";
-            label2.Size = new Size(25, 15);
-            label2.TabIndex = 7;
-            label2.Text = "100";
-            // 
             // easyButton
             // 
             easyButton.Location = new Point(553, 213);
@@ -176,7 +172,8 @@
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(782, 86);
+            label3.ForeColor = Color.Lime;
+            label3.Location = new Point(767, 86);
             label3.Name = "label3";
             label3.Size = new Size(38, 15);
             label3.TabIndex = 12;
@@ -193,11 +190,13 @@
             // label5
             // 
             label5.AutoSize = true;
-            label5.Location = new Point(152, 86);
+            label5.Font = new Font("Segoe UI Semibold", 15.75F, FontStyle.Bold, GraphicsUnit.Point);
+            label5.ForeColor = Color.DarkRed;
+            label5.Location = new Point(107, 86);
             label5.Name = "label5";
-            label5.Size = new Size(46, 15);
+            label5.Size = new Size(171, 30);
             label5.TabIndex = 15;
-            label5.Text = "Ratings";
+            label5.Text = "10 Highest Score";
             // 
             // label6
             // 
@@ -301,7 +300,7 @@
             // 
             // textBox1
             // 
-            textBox1.Location = new Point(472, 175);
+            textBox1.Location = new Point(407, 182);
             textBox1.Name = "textBox1";
             textBox1.Size = new Size(100, 23);
             textBox1.TabIndex = 26;
@@ -321,7 +320,8 @@
             // label16
             // 
             label16.AutoSize = true;
-            label16.Location = new Point(734, 86);
+            label16.ForeColor = Color.Lime;
+            label16.Location = new Point(729, 86);
             label16.Name = "label16";
             label16.Size = new Size(42, 15);
             label16.TabIndex = 28;
@@ -330,11 +330,47 @@
             // label17
             // 
             label17.AutoSize = true;
-            label17.Location = new Point(401, 178);
+            label17.Location = new Point(336, 185);
             label17.Name = "label17";
-            label17.Size = new Size(65, 15);
+            label17.Size = new Size(60, 15);
             label17.TabIndex = 29;
-            label17.Text = "User Name";
+            label17.Text = "Username";
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Location = new Point(404, 98);
+            label2.Name = "label2";
+            label2.Size = new Size(44, 15);
+            label2.TabIndex = 30;
+            label2.Text = "Length";
+            // 
+            // label18
+            // 
+            label18.AutoSize = true;
+            label18.Location = new Point(468, 98);
+            label18.Name = "label18";
+            label18.Size = new Size(39, 15);
+            label18.TabIndex = 31;
+            label18.Text = "Width";
+            // 
+            // numericUpDown1
+            // 
+            numericUpDown1.Location = new Point(407, 118);
+            numericUpDown1.Minimum = new decimal(new int[] { 10, 0, 0, 0 });
+            numericUpDown1.Name = "numericUpDown1";
+            numericUpDown1.Size = new Size(41, 23);
+            numericUpDown1.TabIndex = 34;
+            numericUpDown1.Value = new decimal(new int[] { 10, 0, 0, 0 });
+            // 
+            // numericUpDown2
+            // 
+            numericUpDown2.Location = new Point(468, 118);
+            numericUpDown2.Minimum = new decimal(new int[] { 10, 0, 0, 0 });
+            numericUpDown2.Name = "numericUpDown2";
+            numericUpDown2.Size = new Size(41, 23);
+            numericUpDown2.TabIndex = 35;
+            numericUpDown2.Value = new decimal(new int[] { 10, 0, 0, 0 });
             // 
             // Form1
             // 
@@ -342,6 +378,10 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.SlateGray;
             ClientSize = new Size(940, 725);
+            Controls.Add(numericUpDown2);
+            Controls.Add(numericUpDown1);
+            Controls.Add(label18);
+            Controls.Add(label2);
             Controls.Add(label17);
             Controls.Add(label16);
             Controls.Add(listBox1);
@@ -363,7 +403,6 @@
             Controls.Add(mediumButton);
             Controls.Add(hardButton);
             Controls.Add(easyButton);
-            Controls.Add(label2);
             Controls.Add(exitButton);
             Controls.Add(difficultyButton);
             Controls.Add(playButton);
@@ -375,6 +414,8 @@
             Load += Form1_Load;
             KeyDown += Form1_KeyDown;
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)numericUpDown1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)numericUpDown2).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -387,7 +428,6 @@
         private Button playButton;
         private Button difficultyButton;
         private Button exitButton;
-        private Label label2;
         private Button easyButton;
         private Button hardButton;
         private Button mediumButton;
@@ -409,5 +449,9 @@
         private ListBox listBox1;
         private Label label16;
         private Label label17;
+        private Label label2;
+        private Label label18;
+        private NumericUpDown numericUpDown1;
+        private NumericUpDown numericUpDown2;
     }
 }
