@@ -62,8 +62,6 @@ namespace b209_snake_game_alper_sahin
                 label3.Text = timer.Interval.ToString();
                 Initialize();
             }
-
-
         }
         private void PlayVisible()
         {
@@ -384,7 +382,5 @@ namespace b209_snake_game_alper_sahin
                 }
             }
         }
-
-
     }
 }
