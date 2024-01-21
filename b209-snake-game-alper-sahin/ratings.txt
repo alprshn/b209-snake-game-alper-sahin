@@ -8,11 +8,4 @@ Jennifer 15
 Brian 28
 Jessica 22
 Kevin 38
-Alper 2
-asdas 0
-asdas 0
-asdas 0
-asdas 0
-dsa 0
-asda 2
-weq 2
+Alper 4
